@@ -1,0 +1,7 @@
+.recruiter-header {
+  min-height: 72px;
+}
+
+.recruiter-header .profile-avatar {
+  cursor: pointer;
+}

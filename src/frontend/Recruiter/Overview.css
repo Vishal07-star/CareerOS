@@ -1,0 +1,254 @@
+/* src/frontend/Recruiter/Overview.css
+ * Styles for the Recruiter Overview page.
+ * All layout uses the shared .panel, .stats-grid, .stat-card tokens
+ * from RecruiterCommon.css. This file adds only Overview-specific
+ * structural overrides and the activity / top-candidate sub-components.
+ */
+
+/* ── Overview grid layout ──────────────────────────────────────── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── AI insight banner ─────────────────────────────────────────── */
+.overview-ai-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(
+    135deg,
+    hsl(252 70% 58% / 0.08) 0%,
+    hsl(200 80% 50% / 0.06) 100%
+  );
+  border: 1px solid hsl(252 70% 58% / 0.18);
+  border-radius: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.overview-ai-banner .ai-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, hsl(252 70% 58%), hsl(200 80% 50%));
+  color: #fff;
+}
+
+.overview-ai-banner p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary, hsl(220 15% 45%));
+  line-height: 1.55;
+}
+
+.overview-ai-banner strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-primary, hsl(220 15% 15%));
+  margin-bottom: 0.25rem;
+}
+
+/* ── Upcoming interviews list ──────────────────────────────────── */
+.overview-interview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.overview-interview-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--surface, hsl(220 14% 97%));
+  border: 1px solid var(--border, hsl(220 14% 91%));
+  border-radius: 0.5rem;
+  transition: border-color 0.15s;
+}
+
+.overview-interview-item:hover {
+  border-color: hsl(252 70% 58% / 0.4);
+}
+
+.overview-interview-item .interview-avatar {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, hsl(252 70% 55%), hsl(260 60% 65%));
+}
+
+.overview-interview-item .interview-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.overview-interview-item .interview-meta strong {
+  display: block;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overview-interview-item .interview-meta span {
+  font-size: 0.775rem;
+  color: var(--text-secondary, hsl(220 15% 50%));
+}
+
+.overview-interview-item .interview-time {
+  flex-shrink: 0;
+  font-size: 0.775rem;
+  font-weight: 500;
+  color: hsl(252 70% 55%);
+  white-space: nowrap;
+}
+
+/* ── Top candidates list ───────────────────────────────────────── */
+.overview-top-candidates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.overview-candidate-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--surface, hsl(220 14% 97%));
+  border: 1px solid var(--border, hsl(220 14% 91%));
+  border-radius: 0.5rem;
+  transition: border-color 0.15s;
+  cursor: pointer;
+}
+
+.overview-candidate-item:hover {
+  border-color: hsl(252 70% 58% / 0.4);
+  background: hsl(252 70% 58% / 0.03);
+}
+
+.overview-candidate-item .candidate-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.overview-candidate-item .candidate-info strong {
+  display: block;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overview-candidate-item .candidate-info span {
+  font-size: 0.775rem;
+  color: var(--text-secondary, hsl(220 15% 50%));
+}
+
+.overview-candidate-item .candidate-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: hsl(45 100% 45%);
+}
+
+/* ── Quick-action buttons row ──────────────────────────────────── */
+.overview-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.overview-quick-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4375rem 0.875rem;
+  background: var(--surface, hsl(220 14% 97%));
+  border: 1px solid var(--border, hsl(220 14% 91%));
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  color: var(--text-primary, hsl(220 15% 15%));
+}
+
+.overview-quick-action:hover {
+  border-color: hsl(252 70% 58%);
+  color: hsl(252 70% 50%);
+  background: hsl(252 70% 58% / 0.04);
+}
+
+/* ── Activity feed ─────────────────────────────────────────────── */
+.overview-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.overview-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--border, hsl(220 14% 91%));
+  font-size: 0.8125rem;
+}
+
+.overview-activity-item:last-child {
+  border-bottom: none;
+}
+
+.overview-activity-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: hsl(252 70% 58%);
+}
+
+.overview-activity-item .activity-text {
+  flex: 1;
+  color: var(--text-primary, hsl(220 15% 20%));
+  line-height: 1.5;
+}
+
+.overview-activity-item .activity-time {
+  flex-shrink: 0;
+  color: var(--text-secondary, hsl(220 15% 55%));
+  font-size: 0.75rem;
+  margin-top: 1px;
+}
+
+/* ── Empty states inside panels ────────────────────────────────── */
+.overview-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--text-secondary, hsl(220 15% 55%));
+  font-size: 0.875rem;
+}

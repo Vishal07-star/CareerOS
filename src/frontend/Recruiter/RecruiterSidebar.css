@@ -1,0 +1,9 @@
+.recruiter-sidebar {
+  box-sizing: border-box;
+}
+
+.recruiter-sidebar *,
+.recruiter-sidebar *::before,
+.recruiter-sidebar *::after {
+  box-sizing: border-box;
+}
