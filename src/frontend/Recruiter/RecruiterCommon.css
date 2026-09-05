@@ -36,15 +36,32 @@
   --r-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.recruiter-dark {
+.dark .recruiter-app {
+  /* ink */
   --r-ink: #f1f5f9;
   --r-ink-soft: #94a3b8;
   --r-ink-faint: #64748b;
-  --r-surface: #0d1117;
-  --r-paper: #0a0f1e;
-  --r-line: #1e293b;
-  --r-line-strong: #334155;
+
+  /* surfaces */
+  --r-surface: #131c2e;
+  --r-paper: #0d1422;
+  --r-line: #1e2d45;
+  --r-line-strong: #2d3f58;
+
+  /* brand glow softened */
   --r-brand-glow: rgba(99, 102, 241, 0.3);
+
+  /* status — use muted alpha variants on dark */
+  --r-green: #4ade80;
+  --r-green-soft: rgba(74, 222, 128, 0.14);
+  --r-amber: #fbbf24;
+  --r-amber-soft: rgba(251, 191, 36, 0.14);
+  --r-blue: #60a5fa;
+  --r-blue-soft: rgba(96, 165, 250, 0.14);
+  --r-red: #f87171;
+  --r-red-soft: rgba(248, 113, 113, 0.14);
+  --r-purple: #c084fc;
+  --r-purple-soft: rgba(192, 132, 252, 0.14);
 }
 
 /* =========================================================
@@ -475,12 +492,12 @@
   flex-shrink: 0;
 }
 
-.status-badge.blue   { color: #1d4ed8; background: #e9f1ff; }
-.status-badge.yellow { color: #a16207; background: #fef3c7; }
-.status-badge.purple { color: #7e22ce; background: #f3e8ff; }
-.status-badge.green  { color: #15803d; background: #dcfce7; }
-.status-badge.red    { color: #b91c1c; background: #fee2e2; }
-.status-badge.gray   { color: #4b5563; background: #f3f4f6; }
+.status-badge.blue   { color: var(--r-blue);   background: var(--r-blue-soft); }
+.status-badge.yellow { color: var(--r-amber);  background: var(--r-amber-soft); }
+.status-badge.purple { color: var(--r-purple); background: var(--r-purple-soft); }
+.status-badge.green  { color: var(--r-green);  background: var(--r-green-soft); }
+.status-badge.red    { color: var(--r-red);    background: var(--r-red-soft); }
+.status-badge.gray   { color: var(--r-ink-soft); background: var(--r-paper); }
 
 /* =========================================================
    DATA TABLE

@@ -1,36 +1,40 @@
 @import "./RecruiterCommon.css";
+
+/* =========================================================
+   RECRUITER APP — LAYOUT SHELL
+   Uses --r-* tokens from RecruiterCommon.css.
+   Dark mode works automatically via .dark .recruiter-app
+   token override — no extra .dark overrides needed here.
+   ========================================================= */
+
 .recruiter-app {
   min-height: 100vh;
   display: flex;
-  background: #f6f8fc;
-  color: #172033;
+  background: var(--r-paper);
+  color: var(--r-ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.dark .recruiter-app {
-  background: #0d1117;
-  color: #e7edf7;
-}
+/* ---- Sidebar ---- */
 
 .recruiter-sidebar {
   width: 250px;
   flex-shrink: 0;
   min-height: 100vh;
-  background: #ffffff;
-  border-right: 1px solid #e5e9f2;
+  background: var(--r-surface);
+  border-right: 1px solid var(--r-line);
   display: flex;
   flex-direction: column;
   transition: width 0.25s ease;
   z-index: 30;
 }
 
-.dark .recruiter-sidebar {
-  background: #151a23;
-  border-color: #272f3c;
-}
-
 .recruiter-sidebar.collapsed {
   width: 76px;
 }
+
+/* ---- Brand ---- */
 
 .sidebar-brand {
   height: 72px;
@@ -38,11 +42,7 @@
   display: flex;
   align-items: center;
   gap: 11px;
-  border-bottom: 1px solid #e5e9f2;
-}
-
-.dark .sidebar-brand {
-  border-color: #272f3c;
+  border-bottom: 1px solid var(--r-line);
 }
 
 .brand-mark {
@@ -52,18 +52,22 @@
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: #2563eb;
+  background: linear-gradient(135deg, var(--r-brand), var(--r-brand-light));
   color: white;
+  box-shadow: 0 4px 12px var(--r-brand-glow);
 }
 
 .sidebar-brand strong {
   display: block;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--r-ink);
 }
 
 .sidebar-brand span {
   display: block;
-  color: #8a94a7;
+  color: var(--r-ink-faint);
   font-size: 11px;
   margin-top: 2px;
 }
@@ -72,20 +76,23 @@
   margin-left: auto;
 }
 
+/* ---- Nav ---- */
+
 .sidebar-nav {
-  padding: 18px 12px;
+  padding: 16px 12px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
   flex: 1;
   overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .sidebar-link {
-  min-height: 44px;
+  min-height: 42px;
   border: 0;
   background: transparent;
-  color: #697386;
+  color: var(--r-ink-soft);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -93,40 +100,63 @@
   padding: 10px 13px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
   width: 100%;
   text-align: left;
-  transition: 0.2s;
+  font-family: inherit;
+  position: relative;
+  transition:
+    background 0.18s cubic-bezier(0.4,0,0.2,1),
+    color 0.18s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.18s cubic-bezier(0.4,0,0.2,1);
+}
+
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--r-brand);
+  opacity: 0;
+  transition: opacity 0.18s ease;
 }
 
 .sidebar-link:hover {
-  background: #f1f5fb;
-  color: #1f2937;
+  background: rgba(79, 70, 229, 0.07);
+  color: var(--r-ink);
 }
 
-.dark .sidebar-link:hover {
-  background: #202734;
-  color: white;
+.sidebar-link:hover::before {
+  opacity: 0.5;
 }
 
 .sidebar-link.active {
   color: white;
-  background: #2563eb;
-  box-shadow: 0 7px 18px rgba(37, 99, 235, 0.2);
+  background: linear-gradient(135deg, var(--r-brand), var(--r-brand-light));
+  box-shadow: 0 7px 18px var(--r-brand-glow);
 }
+
+.sidebar-link.active::before {
+  opacity: 0;
+}
+
+/* ---- Sidebar Bottom ---- */
 
 .sidebar-bottom {
   padding: 12px;
-  border-top: 1px solid #e5e9f2;
-}
-
-.dark .sidebar-bottom {
-  border-color: #272f3c;
+  border-top: 1px solid var(--r-line);
 }
 
 .sidebar-link.logout:hover {
-  color: #dc2626;
+  color: var(--r-red);
+  background: var(--r-red-soft);
 }
+
+/* ---- Main Area ---- */
 
 .recruiter-main {
   min-width: 0;
@@ -135,37 +165,41 @@
   flex-direction: column;
 }
 
+/* ---- Top Header ---- */
+
 .recruiter-header {
-  height: 72px;
+  height: 68px;
   flex-shrink: 0;
   padding: 0 26px;
   display: flex;
   align-items: center;
   gap: 20px;
-  background: white;
-  border-bottom: 1px solid #e5e9f2;
-}
-
-.dark .recruiter-header {
-  background: #151a23;
-  border-color: #272f3c;
+  background: var(--r-surface);
+  border-bottom: 1px solid var(--r-line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
 }
 
 .global-search {
   max-width: 620px;
   flex: 1;
-  height: 42px;
+  height: 40px;
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #929bad;
-  background: #f5f7fa;
+  color: var(--r-ink-faint);
+  background: var(--r-paper);
+  border: 1.5px solid var(--r-line);
   border-radius: 10px;
   padding: 0 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.dark .global-search {
-  background: #0e131a;
+.global-search:focus-within {
+  border-color: var(--r-brand);
+  box-shadow: 0 0 0 3px var(--r-brand-glow);
 }
 
 .global-search input {
@@ -173,22 +207,33 @@
   outline: 0;
   background: transparent;
   width: 100%;
-  color: inherit;
+  color: var(--r-ink);
+  font-family: inherit;
+  font-size: 13.5px;
 }
 
 .header-actions {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
+
+/* ---- Buttons in header ---- */
 
 .icon-button,
 .notification-button {
   border: 0;
   background: transparent;
   cursor: pointer;
-  color: inherit;
+  color: var(--r-ink-soft);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-button:hover,
+.notification-button:hover {
+  color: var(--r-ink);
+  transform: scale(1.08);
 }
 
 .notification-button {
@@ -204,30 +249,38 @@
   height: 7px;
   background: #ef4444;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid var(--r-surface);
 }
 
-.dark .notification-button span {
-  border-color: #151a23;
-}
+/* ---- Profile chip ---- */
 
 .profile-chip {
   display: flex;
   align-items: center;
   gap: 9px;
   cursor: pointer;
+  padding: 5px 10px 5px 5px;
+  border-radius: 999px;
+  border: 1px solid var(--r-line);
+  background: var(--r-paper);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.profile-chip:hover {
+  border-color: var(--r-brand-light);
+  background: var(--r-surface);
 }
 
 .profile-avatar {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(135deg, var(--r-brand), #7c3aed);
   color: white;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .profile-info strong,
@@ -237,23 +290,34 @@
 
 .profile-info strong {
   font-size: 13px;
+  font-weight: 700;
+  color: var(--r-ink);
 }
 
 .profile-info small {
-  color: #8993a6;
+  color: var(--r-ink-faint);
   font-size: 11px;
   margin-top: 2px;
 }
+
+/* ---- Content area ---- */
 
 .recruiter-content {
   flex: 1;
   overflow-y: auto;
   padding: 28px;
+  background: var(--r-paper);
 }
+
+/* ---- Mobile menu ---- */
 
 .mobile-menu {
   display: none;
 }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 900px) {
   .recruiter-sidebar {
@@ -262,6 +326,8 @@
     top: 0;
     bottom: 0;
     transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
   }
 
   .recruiter-sidebar.open {

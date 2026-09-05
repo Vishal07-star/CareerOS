@@ -9,7 +9,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.recruiter-dark {
+.dark .recruiter-app {
   background: #0a0f1e;
   color: #f1f5f9;
 }
@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 
-.recruiter-dark .recruiter-sidebar {
+.dark .recruiter-app .recruiter-sidebar {
   background: #0d1117;
   border-color: #1e293b;
 }
@@ -47,7 +47,7 @@
   flex-shrink: 0;
 }
 
-.recruiter-dark .recruiter-sidebar-logo {
+.dark .recruiter-app .recruiter-sidebar-logo {
   border-color: #1e293b;
 }
 
@@ -93,7 +93,7 @@
   background-clip: text;
 }
 
-.recruiter-dark .recruiter-logo-text strong {
+.dark .recruiter-app .recruiter-logo-text strong {
   background: linear-gradient(135deg, #818cf8, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -129,7 +129,7 @@
   background: #e5e7eb;
   border-radius: 999px;
 }
-.recruiter-dark .recruiter-navigation::-webkit-scrollbar-thumb {
+.dark .recruiter-app .recruiter-navigation::-webkit-scrollbar-thumb {
   background: #1e293b;
 }
 
@@ -189,12 +189,12 @@
   opacity: 0.4;
 }
 
-.recruiter-dark .recruiter-nav-link:hover {
+.dark .recruiter-app .recruiter-nav-link:hover {
   background: rgba(255,255,255,0.05);
   color: #f1f5f9;
 }
 
-.recruiter-dark .recruiter-nav-link:hover::before {
+.dark .recruiter-app .recruiter-nav-link:hover::before {
   opacity: 0.6;
 }
 
@@ -294,7 +294,7 @@
   border-top: 1px solid #e5e7eb;
 }
 
-.recruiter-dark .recruiter-sidebar-bottom {
+.dark .recruiter-app .recruiter-sidebar-bottom {
   border-color: #1e293b;
 }
 
@@ -320,7 +320,7 @@
   color: #374151;
 }
 
-.recruiter-dark .recruiter-theme-toggle:hover {
+.dark .recruiter-app .recruiter-theme-toggle:hover {
   background: rgba(255,255,255,0.06);
   color: #e5e7eb;
 }
@@ -347,12 +347,12 @@
   background: #f5f3ff;
 }
 
-.recruiter-dark .sidebar-user {
+.dark .recruiter-app .sidebar-user {
   background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(15,18,36,0.6));
   border-color: #1e293b;
 }
 
-.recruiter-dark .sidebar-user:hover {
+.dark .recruiter-app .sidebar-user:hover {
   border-color: rgba(99,102,241,0.4);
 }
 
@@ -430,7 +430,7 @@
   transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-.recruiter-dark .recruiter-topbar {
+.dark .recruiter-app .recruiter-topbar {
   background: rgba(13, 17, 23, 0.85);
   border-color: rgba(30, 41, 59, 0.8);
 }
@@ -463,7 +463,7 @@
   transform: scale(1.06);
 }
 
-.recruiter-dark .sidebar-toggle:hover {
+.dark .recruiter-app .sidebar-toggle:hover {
   background: rgba(255,255,255,0.07);
   color: #e5e7eb;
 }
@@ -488,12 +488,12 @@
   background: #ffffff;
 }
 
-.recruiter-dark .recruiter-global-search {
+.dark .recruiter-app .recruiter-global-search {
   background: rgba(255,255,255,0.04);
   border-color: #1e293b;
 }
 
-.recruiter-dark .recruiter-global-search:focus-within {
+.dark .recruiter-app .recruiter-global-search:focus-within {
   border-color: #6366f1;
   box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
   background: rgba(255,255,255,0.06);
@@ -509,7 +509,7 @@
   font-size: 13px;
 }
 
-.recruiter-dark .recruiter-global-search input {
+.dark .recruiter-app .recruiter-global-search input {
   color: #f1f5f9;
 }
 
@@ -538,7 +538,7 @@
   font-size: 9px;
 }
 
-.recruiter-dark .recruiter-global-search kbd {
+.dark .recruiter-app .recruiter-global-search kbd {
   background: rgba(255,255,255,0.05);
   border-color: #374151;
 }
@@ -593,7 +593,7 @@
   transform: scale(1.07);
 }
 
-.recruiter-dark .topbar-icon-button:hover {
+.dark .recruiter-app .topbar-icon-button:hover {
   background: rgba(255,255,255,0.07);
   color: #e5e7eb;
 }
@@ -615,7 +615,7 @@
   50% { transform: scale(1.1); box-shadow: 0 0 0 4px rgba(239,68,68,0); }
 }
 
-.recruiter-dark .notification-indicator {
+.dark .recruiter-app .notification-indicator {
   border-color: #0d1117;
 }
 
@@ -640,7 +640,7 @@
   background: #f3f4f6;
 }
 
-.recruiter-dark .recruiter-profile-button:hover {
+.dark .recruiter-app .recruiter-profile-button:hover {
   background: #1f2937;
 }
 
@@ -655,7 +655,7 @@
   color: #111827;
 }
 
-.recruiter-dark .topbar-profile-text strong {
+.dark .recruiter-app .topbar-profile-text strong {
   color: #ffffff;
 }
 
@@ -677,7 +677,7 @@
   z-index: 100;
 }
 
-.recruiter-dark .topbar-dropdown {
+.dark .recruiter-app .topbar-dropdown {
   background: #111827;
   border-color: #374151;
 }
@@ -690,7 +690,7 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.recruiter-dark .dropdown-heading {
+.dark .recruiter-app .dropdown-heading {
   border-color: #374151;
 }
 
@@ -729,7 +729,7 @@
   cursor: pointer;
 }
 
-.recruiter-dark .notification-item {
+.dark .recruiter-app .notification-item {
   border-color: #1f2937;
 }
 
@@ -737,7 +737,7 @@
   background: #f8fafc;
 }
 
-.recruiter-dark .notification-item:hover {
+.dark .recruiter-app .notification-item:hover {
   background: #1f2937;
 }
 
@@ -798,7 +798,7 @@
   font-size: 12px;
 }
 
-.recruiter-dark .profile-dropdown button {
+.dark .recruiter-app .profile-dropdown button {
   color: #e5e7eb;
 }
 
@@ -806,7 +806,7 @@
   background: #f3f4f6;
 }
 
-.recruiter-dark .profile-dropdown button:hover {
+.dark .recruiter-app .profile-dropdown button:hover {
   background: #1f2937;
 }
 
@@ -851,7 +851,7 @@
   background: #f8fafc;
 }
 
-.recruiter-dark .recruiter-content {
+.dark .recruiter-app .recruiter-content {
   background: #0f172a;
 }
 
